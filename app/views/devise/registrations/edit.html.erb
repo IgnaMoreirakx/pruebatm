@@ -1,0 +1,39 @@
+<div class="container" style="padding-top:5%">
+    <div class="row">
+        <div class="col s12">
+            <h3 class="en-linea"><b>Editar configuración de: </b></h3>
+            <h3 class=" en-linea" style="color:#2196F3 !important;">Usuario</h3>
+            <hr>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
+
+            <BR>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="field">
+                <%= f.label :password, "Nueva contraseña (6 caracteres mínimo)" %> <br />
+                <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+
+            <div class="field">
+                <%= f.label :password_confirmation, "Confirme la nueva contraseña" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+
+            <div class="field">
+                <%= f.label :current_password, "Contraseña actual" %> <br />
+                <%= f.password_field :current_password, autocomplete: "off" %>
+            </div>
+
+            <div class="actions">
+                <%= f.submit "Actualizar", class: "waves-effect waves-light btn-large right"%>
+                <%= link_to "Volver", :back , class: "waves-effect btn-flat btn-large"%>
+            </div>
+            <% end %>
+            
+        </div>
+    </div>
+</div>
